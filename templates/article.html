@@ -8,9 +8,54 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./adScroll.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@700;800&family=Cutive+Mono&display=swap" rel="stylesheet">
 
+    <style>
+       .image-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .overlay-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .angled-text {
+            transform: rotate(-45deg);
+            transform-origin: center;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        /* Adjust horizontal positions for each text element */
+        .left {
+            top: 10%;
+            left: 10%;
+        }
+
+        .center {
+            top: 40%;
+            left: 50%;
+        }
+
+        .right {
+            bottom: 10px;
+            right: 10%;
+        }
+    </style>
   </head>
     <body>
         <div class="container">
@@ -29,26 +74,24 @@
                 </div>
                 </div>
             </header>
-        </div>
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                <img src="../assets/images/readme_logo.png" width="50" height="50" class="d-inline-block align-top" alt="">
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav">
-                        <a href="#" class="nav-item nav-link active">News</a>
-                        <a href="#" class="nav-item nav-link">About</a>
-                        <a href="#" class="nav-item nav-link">Past Issues</a>
-                        <a href="#" class="nav-item nav-link">Contact</a>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+                <div class="container-fluid">
+                    <img src="../assets/images/readme_white.png" width="50" height="50" class="d-inline-block align-top" alt="">
+                    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <div class="navbar-nav">
+                            <a href="#" class="nav-item nav-link mx-2 active">News</a>
+                            <a href="#" class="nav-item nav-link mx-2">About</a>
+                            <a href="#" class="nav-item nav-link mx-2">Past Issues</a>
+                            <a href="#" class="nav-item nav-link mx-2">Contact</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </nav>
-        </br>
-        <div class="container">
+            </nav>
+            </br>
             <div>
                 <div class="row flex-column g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                     <div class="col p-4 d-flex flex-column position-static">
@@ -67,24 +110,23 @@
                     </div>
                 </div>
             </div>
-            <div class="row text-center d-flex justify-content-center align-items-center">
-                <div class="position-relative col-md-3">
-                    <!-- Your image goes here -->
+            <div class="row text-center d-flex justify-content-center align-items-center" id="Advertisment">
+
+                <div class="image-container position-relative col-md-3">
                     <img src="../assets/images/40174919-03c9-4a4f-bce9-f241d492ed4b-2060x1028.webp" alt="Image Description" class="img-fluid" />
-                    
-                    <!-- Your text goes here -->
-                    <div class="position-absolute top-50 start-50 translate-middle text-center">
-                        <h1>Advertisment</h1>
+                    <div class="overlay-text left">
+                        <p class="angled-text">Advertisement 1</p>
+                    </div>
+                    <div class="overlay-text center">
+                        <p class="angled-text">Advertisement 2</p>
+                    </div>
+                    <div class="overlay-text right">
+                        <p class="angled-text">Advertisement 3</p>
                     </div>
                 </div>
                 <div class="position-relative col-md-3">
                     <!-- Your image goes here -->
                     <img src="../assets/images/2a34d8_7f42c177b31d4afb9905d8b97207940emv2.webp" alt="Image Description" class="img-fluid" />
-                    
-                    <!-- Your text goes here -->
-                    <div class="position-absolute top-50 start-50 translate-middle text-center">
-                        <h1>Advertisment</h1>
-                    </div>
                 </div>
                 <div class="position-relative col-md-3">
                     <!-- Your image goes here -->
@@ -117,6 +159,12 @@
 
             </div>
         </div>
+        <div class="position-fixed bottom-0 start-50 translate-middle-x p-3" id="adPopup" style="display: none;">
+            <div class="bg-light border rounded p-2">
+                <!-- Popup content goes here -->
+                Your article continues below these advertisments
+            </div>
+        </div>
     </body>
     <footer class="py-5 text-body-secondary bg-dark">
         <div class="row text-center d-flex justify-content-center align-items-center">
@@ -129,4 +177,5 @@
             </div>
         </div>      
     </footer>
+
 </html>
