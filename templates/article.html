@@ -13,52 +13,68 @@
     <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@700;800&family=Cutive+Mono&display=swap" rel="stylesheet">
 
     <style>
-       .image-container {
+        /* Custom CSS for the image and overlay text */
+        .image-container {
             position: relative;
             overflow: hidden;
+            max-width: 100%;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
         }
 
         .overlay-text {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .angled-text {
-            transform: rotate(-45deg);
-            transform-origin: center;
-            text-align: center;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: #fff;
+            background-color: rgba(0, 0, 0,0.0);
+            color: #000;
             padding: 10px;
             font-size: 16px;
+            transform: rotate(-45deg);
+            transform-origin: center;
         }
 
-        /* Adjust horizontal positions for each text element */
-        .left {
-            top: 10%;
-            left: 10%;
+        .image-container:hover .overlay-text {
+            opacity: 1;
         }
 
-        .center {
-            top: 40%;
+        /* Text positions */
+        .position-1 {
+            top: 13%;
+            left: 10px;
+        }
+
+        .position-2 {
+            top: 13%;
+            right: 5%;
+        }
+
+        .position-3 {
+            bottom: 10%;
+            left: 10px;
+        }
+
+        .position-4 {
+            bottom: 10%;
+            right: 5%;
+        }
+
+        .position-5 {
+            top: 30%;
             left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
         }
 
-        .right {
-            bottom: 10px;
-            right: 10%;
+        .position-6 {
+            bottom: 25%;
+            left: 50%;
+            transform: translate(-50%, 50%) rotate(-45deg);
         }
     </style>
   </head>
     <body>
-        <div class="container">
+        <div class="container-lg">
             <header class="border-bottom lh-1 py-3">
                 <div class="row flex-nowrap justify-content-between align-items-center">
                 <div class="col-4 pt-1">
@@ -114,27 +130,48 @@
 
                 <div class="image-container position-relative col-md-3">
                     <img src="../assets/images/40174919-03c9-4a4f-bce9-f241d492ed4b-2060x1028.webp" alt="Image Description" class="img-fluid" />
-                    <div class="overlay-text left">
-                        <p class="angled-text">Advertisement 1</p>
+                    <div class="overlay-text position-1">
+                        <p><b>Advertisement</b></p>
                     </div>
-                    <div class="overlay-text center">
-                        <p class="angled-text">Advertisement 2</p>
+                    <div class="overlay-text position-2">
+                        <p><b>Advertisement</b></p>
                     </div>
-                    <div class="overlay-text right">
-                        <p class="angled-text">Advertisement 3</p>
+                    <div class="overlay-text position-3">
+                        <p><b>Advertisement</b></p>
                     </div>
+                    <div class="overlay-text position-4">
+                        <p><b>Advertisement</b></p>
                 </div>
                 <div class="position-relative col-md-3">
                     <!-- Your image goes here -->
                     <img src="../assets/images/2a34d8_7f42c177b31d4afb9905d8b97207940emv2.webp" alt="Image Description" class="img-fluid" />
+                    <div class="overlay-text position-1">
+                        <p><b>Advertisement</b></p>
+                    </div>
+                    <div class="overlay-text position-2">
+                        <p><b>Advertisement</b></p>
+                    </div>
+                    <div class="overlay-text position-3">
+                        <p><b>Advertisement</b></p>
+                    </div>
+                    <div class="overlay-text position-4">
+                        <p><b>Advertisement</b></p>
+                    </div>
                 </div>
                 <div class="position-relative col-md-3">
                     <!-- Your image goes here -->
                     <img src="https://media.discordapp.net/attachments/1187995214284070974/1189311274622926979/image.png?ex=659db370&is=658b3e70&hm=3a225f9f18c2038d361467fd34e1fca3ea62ea42a6b9f5fad7769ba436f48459&=&format=webp&quality=lossless&width=1252&height=1228" alt="Image Description" class="img-fluid" />
-                    
-                    <!-- Your text goes here -->
-                    <div class="position-absolute top-50 start-50 translate-middle text-center">
-                        <h1>Advertisment</h1>
+                    <div class="overlay-text position-1">
+                        <p><b>Advertisement</b></p>
+                    </div>
+                    <div class="overlay-text position-2">
+                        <p><b>Advertisement</b></p>
+                    </div>
+                    <div class="overlay-text position-3">
+                        <p><b>Advertisement</b></p>
+                    </div>
+                    <div class="overlay-text position-4">
+                        <p><b>Advertisement</b></p>
                     </div>
                 </div>
             </div>
@@ -166,7 +203,7 @@
             </div>
         </div>
     </body>
-    <footer class="py-5 text-body-secondary bg-dark">
+    <footer class="py-5 text-body-secondary bg-dark container">
         <div class="row text-center d-flex justify-content-center align-items-center">
             <div class="position-relative col-md-3">
                 <img src="../assets/images/readme_logo.png" alt="Image Description" class="img-fluid" />
