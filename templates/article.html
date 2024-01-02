@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./adScroll.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@700;800&family=Cutive+Mono&display=swap" rel="stylesheet">
+
+    <style>
+        /* Custom CSS for the image and overlay text */
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            max-width: 100%;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+        }
+
+        .overlay-text {
+            position: absolute;
+            background-color: rgba(0, 0, 0,0.0);
+            color: #000;
+            padding: 10px;
+            font-size: 16px;
+            transform: rotate(-45deg);
+            transform-origin: center;
+        }
+
+        .image-container:hover .overlay-text {
+            opacity: 1;
+        }
+
+        /* Text positions */
+        .position-1 {
+            top: 13%;
+            left: 10px;
+        }
+
+        .position-2 {
+            top: 13%;
+            right: 5%;
+        }
+
+        .position-3 {
+            bottom: 10%;
+            left: 10px;
+        }
+
+        .position-4 {
+            bottom: 10%;
+            right: 5%;
+        }
+
+        .position-5 {
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+
+        .position-6 {
+            bottom: 25%;
+            left: 50%;
+            transform: translate(-50%, 50%) rotate(-45deg);
+        }
+    </style>
+  </head>
+    <body>
+        <div class="container-lg">
+            <header class="border-bottom lh-1 py-3">
+                <div class="row flex-nowrap justify-content-between align-items-center">
+                <div class="col-4 pt-1">
+                    <a class="link-secondary" href="https://www.cmukgb.org/who-are-we-anyway/">By KGB</a>
+                </div>
+                <div class="col-4 text-center">
+                    <h1><a class="blog-header-logo text-body-emphasis text-decoration-none" style="font-family: Cutive Mono;" href="#">README</a></h1>
+                </div>
+                <div class="col-4 d-flex justify-content-end align-items-center">
+                    <a class="link-secondary" href="#" aria-label="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
+                    </a>
+                </div>
+                </div>
+            </header>
+
+            <nav class="navbar navbar-expand-lg navbar-dark border-top border-bottom" style="background-color: #d9d9d8;">
+                <div class="container-fluid">
+                    <img src="../assets/images/readme_white.png" width="50" height="50" class="d-inline-block align-top" alt="">
+                    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <div class="navbar-nav">
+                            <a href="#" class="text-dark nav-item nav-link mx-2 active"><b>News</b></a>
+                            <a href="#" class="text-dark nav-item nav-link mx-2">About</a>
+                            <a href="#" class="text-dark nav-item nav-link mx-2">Past Issues</a>
+                            <a href="#" class="text-dark nav-item nav-link mx-2">Contact</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            </br>
+            <div>
+                <div class="row flex-column g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-success-emphasis">News</strong>
+                        <h3 class="mb-0" style="font-family: Cutive Mono;">Carnegie Mellon is Harsh</h3>
+                        <div class="mb-1 text-body-secondary">Jan 1, 1970</div>
+                        <p class="mb-auto">Built amongst the forboding gothic towers of a once-great Steel City </p>
+                        <a href="#" class="icon-link gap-1 icon-link-hover">
+                            By: Quora User
+                            <svg class="bi"><use xlink:href="#chevron-right"/></svg>
+                        </a>
+                    </div>
+                    <div class="col-auto flex-column d-lg-block position-static text-center order-first order-md-last">
+                        <img src="https://media.discordapp.net/attachments/1187995175222525992/1188698867236077638/scottyAntiCopyright_1.png"
+                             width="auto" height="180" class="center" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="row text-center d-flex justify-content-center align-items-center" id="Advertisment">
+
+                <div class="image-container position-relative col-md-3">
+                    <img src="../assets/images/40174919-03c9-4a4f-bce9-f241d492ed4b-2060x1028.webp" alt="Image Description" class="img-fluid" />
+                    <div class="overlay-text position-1">
+                        <p><b>Advertisement</b></p>
+                    </div>
+                    <div class="overlay-text position-2">
+                        <p><b>Advertisement</b></p>
+                    </div>
+                    <div class="overlay-text position-3">
+                        <p><b>Advertisement</b></p>
+                    </div>
+                    <div class="overlay-text position-4">
+                        <p><b>Advertisement</b></p>
+                    </div>
+
+                </div>
+                <div class="position-relative col-md-3">
+                    <!-- Your image goes here -->
+                    <img src="../assets/images/2a34d8_7f42c177b31d4afb9905d8b97207940emv2.webp" alt="Image Description" class="img-fluid" />
+                    <div class="overlay-text position-1">
+                        <p><b>Advertisement</b></p>
+                    </div>
+                    <div class="overlay-text position-2">
+                        <p><b>Advertisement</b></p>
+                    </div>
+                    <div class="overlay-text position-3">
+                        <p><b>Advertisement</b></p>
+                    </div>
+                    <div class="overlay-text position-4">
+                        <p><b>Advertisement</b></p>
+                    </div>
+                </div>
+                <div class="position-relative col-md-3">
+                    <!-- Your image goes here -->
+                    <img src="https://media.discordapp.net/attachments/1187995214284070974/1189311274622926979/image.png?ex=659db370&is=658b3e70&hm=3a225f9f18c2038d361467fd34e1fca3ea62ea42a6b9f5fad7769ba436f48459&=&format=webp&quality=lossless&width=1252&height=1228" alt="Image Description" class="img-fluid" />
+                    <div class="overlay-text position-1">
+                        <p><b>Advertisement</b></p>
+                    </div>
+                    <div class="overlay-text position-2">
+                        <p><b>Advertisement</b></p>
+                    </div>
+                    <div class="overlay-text position-3">
+                        <p><b>Advertisement</b></p>
+                    </div>
+                    <div class="overlay-text position-4">
+                        <p><b>Advertisement</b></p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="row flex-column g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative col p-4 d-flex flex-column position-static">
+                    <p>The possibility of failure is necessary in order for an accomplishment to be valuable.</p>
+
+                    <p>Carnegie Mellon is harsh. Built amongst the foreboding gothic towers of a once-great Steel City in the Pittsburgh climate of endless wind and rain, Carnegie Mellon (or CMU, as its grim, studious denizens call it) gives no quarter.</p>
+                    
+                    <figure class="text-center">
+
+                        <img src="../assets/images/Carnegie_biography_canonical.jpg" style="max-width: 50%;" class="mx-auto d-block" class="img-fluid"/>
+                        <figcaption class="mt-2">My Heart is in the Work - <i>Andrew Carnegie, Founder</i></figcaption>
+
+                    </figure>
+
+                    <p>If you arrive as a freshman and find that the courseload or subject matter is too difficult, you will simply begin to fall behind, until you start to fail your courses, and once you fail out of too many, you will be placed on probation and eventually, you will leave. During the first year of every student, if you're not the one who is failing out, you will inevitably know someone who does. It doesn't happen loudly - someone you know will just... disappear. Usually after the first winter break, or some make it through the first year but don't return for the second. Eventually you hear through the grapevine that they transferred to another school, always an easier one (not that there are harder ones). The university has no mercy. You are there to learn and study - the harsh weather and humdrum city life ensure that you do - and if you can't keep up, you will be pitilessly and efficiently removed. Those who survive emerge stronger, hardened, capable.</p>
+                        
+                    <p>Carnegie Mellon is Pittsburgh's last steel factory.</p>
+                </div>
+            </div>
+
+            </div>
+        </div>
+        <div class="position-fixed bottom-0 start-50 translate-middle-x p-3" id="adPopup" style="display: none;">
+            <div class="bg-light border rounded p-2">
+                <!-- Popup content goes here -->
+                Your article continues below these advertisments
+            </div>
+        </div>
+    </body>
+    <footer class="py-5 text-body-secondary bg-dark container">
+        <div class="row text-center d-flex justify-content-center align-items-center">
+            <div class="position-relative col-md-3">
+                <img src="../assets/images/readme_logo.png" alt="Image Description" class="img-fluid" />
+            
+            </div>
+            <div class="position-relative col-md-3">
+                <h2 class="text-white" style="text-align: left; font-family: Cutive Mono;">README, by CMU KGB</h2>
+            </div>
+        </div>      
+    </footer>
+
+</html>
