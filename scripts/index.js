@@ -2,6 +2,7 @@ const express = require('express');
 const multer = require("multer");
 const path = require("path");
 const decompress = require("decompress");
+var crypto = require('crypto');
 const app = express();
 
 
@@ -10,7 +11,6 @@ const storage = multer.diskStorage({
     cb(null, './uploads/')
   },
   filename: function (req, file, cb) {
-
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
     cb(null, uniqueSuffix + "-" + file.originalname)
   }
@@ -42,10 +42,22 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
+function unzipContents(fileName, articleHash) {
+  decompress(fileName, "./uploads/" + articleHash+ "/uwu/")
+  .then((files) => {
+    console.log(files);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 
+}
 // Single file
 app.post("/new_article", upload.single("file"), (req, res) => {
-  console.log(req.file)
+  console.log(req.file.filename);
+  const articleHash = crypto.createHash('sha256').update(req.file.filename).digest('hex');
+  console.log(articleHash)
+  unzipContents("./uploads/" + req.file.filename, articleHash);
   return res.send("Single file")
 })
 
