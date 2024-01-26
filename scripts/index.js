@@ -3,6 +3,8 @@ const multer = require("multer");
 const path = require("path");
 const decompress = require("decompress");
 var crypto = require('crypto');
+var fs = require('fs');
+var generateArticlePage = require("./generator")
 const app = express();
 
 
@@ -42,26 +44,44 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-function unzipContents(fileName, articleHash) {
-  decompress(fileName, "./uploads/" + articleHash+ "/uwu/")
+async function unzipContents(fileName, articleHash) {
+  await decompress(fileName, "./uploads/" + articleHash)
   .then((files) => {
     console.log(files);
   })
   .catch((error) => {
     console.log(error);
   });
-
+  return null;
 }
 // Single file
-app.post("/new_article", upload.single("file"), (req, res) => {
+app.post("/new_article", upload.single("file"), async (req, res) => {
   console.log(req.file.filename);
   const articleHash = crypto.createHash('sha256').update(req.file.filename).digest('hex');
   console.log(articleHash)
-  unzipContents("./uploads/" + req.file.filename, articleHash);
+  await unzipContents("./uploads/" + req.file.filename, articleHash);
+  await deleteFile(req.file.filename);
+  await generateArticlePage(articleHash, null, null, null);
   return res.send("Single file")
 })
 
+async function deleteFile(filename) {
+  fs.stat('./uploads/' + filename, async function (err, stats) {
+    console.log(stats);//here we got all information of file in stats variable
+ 
+    if (err) {
+        return console.error(err);
+    }
+ 
+    fs.unlink('./uploads/' + filename,function(err){
+      if(err) return console.log(err);
+      console.log('file deleted successfully');
+    });  
+  });
+}
 
 app.listen(3000 || process.env.PORT, () => {
   console.log("Server on...")
 })
+
+
