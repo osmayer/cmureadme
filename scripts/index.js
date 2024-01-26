@@ -19,7 +19,7 @@ const storage = multer.diskStorage({
 })
 
 const fileFilter = function(req, file, cb) {
-  var filetypes = /zip/;
+  var filetypes = /zip|png|jpg|jpeg/;
   var mimetype = filetypes.test(file.mimetype);
 
   var extname = filetypes.test(
@@ -55,30 +55,51 @@ async function unzipContents(fileName, articleHash) {
   return null;
 }
 // Single file
-app.post("/new_article", upload.single("file"), async (req, res) => {
-  console.log(req.file.filename);
-  const articleHash = crypto.createHash('sha256').update(req.file.filename).digest('hex');
-  console.log(articleHash)
-  await unzipContents("./uploads/" + req.file.filename, articleHash);
-  await deleteFile(req.file.filename);
+app.post("/new_article", upload.fields([{name: "article" }, { name: "header"}]), async (req, res) => {
+  const articleHash = crypto.createHash('md5').update(req.files.article[0].filename).digest('hex');
+  await unzipContents("./uploads/" + req.files.article[0].filename, articleHash);
+  await moveHeaderImage(req.files.header[0].filename, articleHash+"_header."+req.files.header[0].mimetype.split("/")[1]);
   await generateArticlePage(articleHash, null, null, null);
+  await clearUploads(req.files.article[0].filename, articleHash);
   return res.send("Single file")
 })
 
-async function deleteFile(filename) {
-  fs.stat('./uploads/' + filename, async function (err, stats) {
+async function clearUploads(zipName, unzippedName) {
+  fs.stat('./uploads/' + zipName, async function (err, stats) {
     console.log(stats);//here we got all information of file in stats variable
  
     if (err) {
         return console.error(err);
     }
  
-    fs.unlink('./uploads/' + filename,function(err){
+    fs.unlink('./uploads/' + zipName,function(err){
+      if(err) return console.log(err);
+      console.log('file deleted successfully');
+    });  
+  });
+
+  fs.stat('./uploads/' + unzippedName, async function (err, stats) {
+    console.log(stats);//here we got all information of file in stats variable
+ 
+    if (err) {
+        return console.error(err);
+    }
+ 
+    fs.rm('./uploads/' + unzippedName, { recursive: true }, function(err){
       if(err) return console.log(err);
       console.log('file deleted successfully');
     });  
   });
 }
+
+async function moveHeaderImage(filename, filetarget) {
+  try {
+    fs.renameSync("./uploads/" + filename, "../public/generated_content/assets/" + filetarget);
+  } catch (err) {
+      console.error("Error moving file:", err);
+  } 
+}
+
 
 app.listen(3000 || process.env.PORT, () => {
   console.log("Server on...")
