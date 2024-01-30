@@ -4,7 +4,8 @@
   "description": "Website for README, by CMU KGB",
   "main": "./scripts/index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "node ./scripts/index.js"
   },
   "author": "Henry Mayer",
   "license": "ISC",
