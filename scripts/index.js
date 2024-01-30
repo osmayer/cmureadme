@@ -11,7 +11,7 @@ app.use(cors());
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(express.static('public'))
 
 
 const storage = multer.diskStorage({
@@ -114,5 +114,8 @@ async function moveHeaderImage(filename, filetarget) {
 app.listen(process.env.PORT || 3000, () => {
   console.log("Server on...")
 })
+
+
+
 
 
