@@ -6,6 +6,12 @@ var crypto = require('crypto');
 var fs = require('fs');
 var generateArticlePage = require("./generator")
 const app = express();
+const cors = require('cors');
+app.use(cors());
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
 
 
 const storage = multer.diskStorage({
@@ -38,7 +44,7 @@ const fileFilter = function(req, file, cb) {
 
 }
 
-const upload = multer({ storage: storage, fileFilter: fileFilter, limits: {fileSize: 1000000} })
+const upload = multer({ storage: storage, fileFilter: fileFilter, limits: {fileSize: 1000000000} })
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
@@ -56,12 +62,16 @@ async function unzipContents(fileName, articleHash) {
 }
 // Single file
 app.post("/new_article", upload.fields([{name: "article" }, { name: "header"}]), async (req, res) => {
+  console.log(req);
+  console.log(JSON.stringify(req.files));
+  console.log(req.body);
+  console.log(req.route)
   const articleHash = crypto.createHash('md5').update(req.files.article[0].filename).digest('hex');
   await unzipContents("./uploads/" + req.files.article[0].filename, articleHash);
   await moveHeaderImage(req.files.header[0].filename, articleHash+"_header."+req.files.header[0].mimetype.split("/")[1]);
-  await generateArticlePage(articleHash, null, null, null);
+  await generateArticlePage(articleHash, req.body.articleTitle, req.body.articleTitle, "../assets/" + articleHash+"_header."+req.files.header[0].mimetype.split("/")[1], Date.now(), );
   await clearUploads(req.files.article[0].filename, articleHash);
-  return res.send("Single file")
+  return res.send("File was uploaded!!");
 })
 
 async function clearUploads(zipName, unzippedName) {

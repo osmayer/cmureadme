@@ -1,6 +1,6 @@
 var fs = require('fs');
 
-const generateArticlePage = async (articleHash, articleTitle, articleAuthor, articlePictureUrl) => {
+const generateArticlePage = async (articleHash, articleTitle, articleAuthor, articlePictureUrl, articleDate, articleCateogry, articleSummary) => {
     var articleBody, articleTemplate;
     try {
         articleBody = await readFileContents(articleHash);
@@ -10,6 +10,12 @@ const generateArticlePage = async (articleHash, articleTitle, articleAuthor, art
     }
     console.log(typeof articleTemplate);
     articleTemplate = articleTemplate.replace("{{articleBody}}", articleBody);
+    articleTemplate = articleTemplate.replace("{{articleTitle}}", articleTitle);
+    articleTemplate = articleTemplate.replace("{{articleAuthor}}", articleAuthor);
+    articleTemplate = articleTemplate.replace("{{articleThumbnailUrl}}", articlePictureUrl);
+    articleTemplate = articleTemplate.replace("{{articlePublishDate}}", articleDate);
+    articleTemplate = articleTemplate.replace("{{articleSummary}}", articleSummary);
+    articleTemplate = articleTemplate.replace("{{articleCategory}}", articleCateogry);
     writeArticle(articleHash, articleTemplate);
 };
 
