@@ -136,45 +136,45 @@
             <h2 class="text-center">There is litle success where there is little laughter -Andrew Carnegie</h2>
             <div>
                 <div class="row flex-column g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative col p-4 d-flex flex-column position-static">
-                    <form id="article_submission" action="http://localhost:3000/new_article" method="POST" enctype="multipart/form-data">
+                    <form id="article_submission" action="/new_article" method="POST" enctype="multipart/form-data">
                         <!-- Text Inputs -->
                         <div class="mb-3">
                             <label for="articleTitle" class="form-label">Article Title</label>
-                            <input type="text" class="form-control square-input" name="articleTitle" id="articleTitle" placeholder="{Enter a title}">
+                            <input type="text" class="form-control square-input" name="articleTitle" id="articleTitle" placeholder="{Enter a title}" required>
                         </div>
                 
                         <div class="mb-3">
                             <label for="articleHeader" class="form-label">Article Summary</label>
-                            <input type="text" class="form-control square-input" name="articleSummary" id="articleSummary" placeholder="{Write a brief summary}">
+                            <input type="text" class="form-control square-input" name="articleSummary" id="articleSummary" placeholder="{Write a brief summary}" required>
                         </div>
                 
                         <!-- Dropdown -->
                         <div class="mb-3">
                             <label for="dropdown" class="form-label">Category</label>
-                            <select class="form-select square-input" name="articleCategory" id="articleCategory">
+                            <select class="form-select square-input" name="articleCategory" id="articleCategory" required>
                                 <option selected>Choose an option</option>
-                                <option value="1">Breaking News</option>
-                                <option value="2">Science & Tech</option>
-                                <option value="3">Random Musings</option>
-                                <option value="3">Crime</option>
-                                <option value="3">Investigations</option>
+                                <option value="Breaking News">Breaking News</option>
+                                <option value="Science & Tech">Science & Tech</option>
+                                <option value="Random Musings">Random Musings</option>
+                                <option value="Crime">Crime</option>
+                                <option value="Investigations">Investigations</option>
                             </select>
                         </div>
 
                         <!-- File Inputs -->
                         <div class="mb-3">
                             <label for="article" class="form-label">ZIP File (Export from Docs)</label>
-                            <input type="file" class="form-control square-input" accept=".zip" name="article" id="article">
+                            <input type="file" class="form-control square-input" accept=".zip" name="article" id="article" required>
                         </div>
                 
                         <div class="mb-3">
                             <label for="header" class="form-label">Headline Image</label>
-                            <input type="file" class="form-control square-input" name="header" id="header">
+                            <input type="file" class="form-control square-input" name="header" id="header" required>
                         </div>
                 
                         <div class="mb-3">
-                            <label for="textInput2" class="form-label">Magic Code</label>
-                            <input type="text" class="form-control square-input" id="magicCode" placeholder="//Todo: implement password protection">
+                            <label for="magicCode" class="form-label">Magic Code</label>
+                            <input type="text" class="form-control square-input" name="magicCode" id="magicCode" placeholder="//Todo: implement password protection" required>
                         </div>
                         <!-- Submit Button -->
                         <!--button type="submit" class="btn btn-primary" >Let's go!</button-->
@@ -193,8 +193,7 @@
             e.preventDefault();
 
             const formData = new FormData(this);
-            console.log(formData);
-            console.log(this)
+            console.log(formData.entries);
             fetch('http://localhost:3000/new_article', {
                 method: 'POST',
                 body: formData

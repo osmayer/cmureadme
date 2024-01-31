@@ -5,6 +5,7 @@ const decompress = require("decompress");
 var crypto = require('crypto');
 var fs = require('fs');
 var generateArticlePage = require("./generator")
+var validateUser = require("./userKeys");
 const app = express();
 const cors = require('cors');
 app.use(cors());
@@ -62,16 +63,26 @@ async function unzipContents(fileName, articleHash) {
 }
 // Single file
 app.post("/new_article", upload.fields([{name: "article" }, { name: "header"}]), async (req, res) => {
-  console.log(req);
-  console.log(JSON.stringify(req.files));
-  console.log(req.body);
-  console.log(req.route)
+  console.log(req.body)
   const articleHash = crypto.createHash('md5').update(req.files.article[0].filename).digest('hex');
+  var userName; 
+  try{
+    userName = await validateUser(req.body.magicCode);
+  } catch (e) {
+      return res.status(403).send({
+        message: "Authentication Error: " + e
+     });
+  }
   await unzipContents("./uploads/" + req.files.article[0].filename, articleHash);
   await moveHeaderImage(req.files.header[0].filename, articleHash+"_header."+req.files.header[0].mimetype.split("/")[1]);
-  await generateArticlePage(articleHash, req.body.articleTitle, req.body.articleTitle, "../assets/" + articleHash+"_header."+req.files.header[0].mimetype.split("/")[1], Date.now(), );
+  await generateArticlePage(articleHash, req.body.articleTitle, userName.userName, "../assets/" + articleHash+"_header."+req.files.header[0].mimetype.split("/")[1], new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }), req.body.articleCategory, req.body.articleSummary);
   await clearUploads(req.files.article[0].filename, articleHash);
-  return res.send("File was uploaded!!");
+
+
+  return res.json({
+    "status": "sucess",
+    "articleID": articleHash
+  });
 })
 
 async function clearUploads(zipName, unzippedName) {
@@ -104,7 +115,7 @@ async function clearUploads(zipName, unzippedName) {
 
 async function moveHeaderImage(filename, filetarget) {
   try {
-    fs.renameSync("./uploads/" + filename, "../public/generated_content/assets/" + filetarget);
+    fs.renameSync("./uploads/" + filename, "./public/generated_content/assets/" + filetarget);
   } catch (err) {
       console.error("Error moving file:", err);
   } 

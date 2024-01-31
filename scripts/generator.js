@@ -67,7 +67,7 @@ async function getRootFileName(articleHash) {
 
 async function openArticleTemplate() {
     try {
-        return fs.readFileSync("../templates/generic_article.html").toString();
+        return fs.readFileSync("./templates/generic_article.html").toString();
     } catch (e) {
         throw new Error("Internal Error: " + e);
     }
@@ -75,7 +75,7 @@ async function openArticleTemplate() {
 
 async function writeArticle(articleHash, article) {
     try {
-        await fs.promises.writeFile("../public/generated_content/articles/" + articleHash + ".html", article);
+        await fs.promises.writeFile("./public/generated_content/articles/" + articleHash + ".html", article);
         console.log("File updated successfully");
     } catch (err) {
         console.error("Error writing file:", err);
