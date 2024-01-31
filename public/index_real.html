@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./adScroll.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googltext-dark eapis.com/css2?family=Alegreya+Sans:wght@700;800&family=Cutive+Mono&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* Custom CSS for the image and overlay text */
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            max-width: 100%;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+        }
+
+        .overlay-text {
+            position: absolute;
+            background-color: rgba(0, 0, 0,0.0);
+            color: #000;
+            padding: 10px;
+            font-size: 16px;
+            transform: rotate(-45deg);
+            transform-origin: center;
+        }
+
+        .image-container:hover .overlay-text {
+            opacity: 1;
+        }
+
+        /* Text positions */
+        .position-1 {
+            top: 13%;
+            left: 10px;
+        }
+
+        .position-2 {
+            top: 13%;
+            right: 5%;
+        }
+
+        .position-3 {
+            bottom: 10%;
+            left: 10px;
+        }
+
+        .position-4 {
+            bottom: 10%;
+            right: 5%;
+        }
+
+        .position-5 {
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+
+        .position-6 {
+            bottom: 25%;
+            left: 50%;
+            transform: translate(-50%, 50%) rotate(-45deg);
+        }
+        .social {
+            margin-right: 7px;
+        }
+
+        .btn .fa {
+            margin-right: 10px;
+        }
+    </style>
+    <style>
+        /* Custom Styles */
+        .carousel-button-container {
+          position: absolute;
+          top: 10px; /* Adjust as needed */
+          right: 10px; /* Adjust as needed */
+          z-index: 2;
+        }
+    
+        .carousel-caption {
+          position: static; /* Override default position to be below image */
+          background: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+          color: #333; /* Text color */
+        }
+    
+        .carousel-indicators [data-bs-target] {
+          background-color: #777; /* Active indicator color */
+        }
+    
+        .carousel-indicators .active {
+          background-color: #333; /* Indicator color */
+        }
+        .carousel-item img {
+      max-width: 100%; /* Responsive image width */
+      max-height: 400px; /* Maximum height */
+      object-fit: contain; /* Preserve aspect ratio */
+      margin: auto; /* Center the image if it's smaller than container */
+    }
+      </style>
+    </head>
+    <body>
+      <div class="container-fluid">
+        <header class="border-bottom lh-1 py-3">
+            <div class="row flex-nowrap justify-content-between align-items-center">
+            <div class="col-4 pt-1">
+                <a class="link-secondary" href="https://www.cmukgb.org/who-are-we-anyway/">By KGB</a>
+            </div>
+            <div class="col-4 text-center">
+                <h1><a class="blog-header-logo text-body-emphasis text-decoration-none" style="font-family: Cutive Mono;" href="#">README</a></h1>
+            </div>
+            <div class="col-4 d-flex justify-content-end align-items-center">
+                <a class="link-secondary" href="#" aria-label="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
+                </a>
+            </div>
+            </div>
+        </header>
+
+        <nav class="navbar navbar-expand-lg navbar-dark border-top border-bottom" style="background-color: #d9d9d8;">
+            <div class="container-fluid">
+                <img src="../assets/images/readme_white.png" width="50" height="50" class="d-inline-block align-top" alt="">
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav">
+                        <a href="#" class="text-dark nav-item nav-link mx-2 active"><b>News</b></a>
+                        <a href="#" class="text-dark nav-item nav-link mx-2">About</a>
+                        <a href="#" class="text-dark nav-item nav-link mx-2">Past Issues</a>
+                        <a href="#" class="text-dark nav-item nav-link mx-2">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+      </div>
+      <div class="container-lg">
+        <div class="d-flex justify-content-between align-items-end mt-5">
+            <h1>Latest Issue</h1>
+            <p>Jan 1, 1970</p> 
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-lg-8 p-4 p-md-5 mb-4  flex-column g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+                  
+              <div class="carousel-inner">
+              <div class="carousel-item active">
+                  <img src="../assets/images/readme_logo.png" class="d-block w-100" alt="...">
+                  <div class="carousel-caption d-md-block">
+                      <h5>Headline</h5>
+                      <p>Summar of the Article</p>
+                  </div>
+              </div>
+              <div class="carousel-item">
+                  <img src="../assets/images/2a34d8_7f42c177b31d4afb9905d8b97207940emv2.webp" class="d-block w-100" alt="...">
+                  <div class="carousel-caption d-md-block">
+                      <h5>Look, you can click on the image or headline</h5>
+                      <p>No, don't click here</p>
+                  </div>
+              </div>
+              <div class="carousel-item">
+                  <img src="../assets/images/Carnegie_biography_canonical.jpg" class="d-block w-100" alt="...">
+                  <div class="carousel-caption d-md-block">
+                      <h5>Title 3</h5>
+                      <p>Description for third slide.</p>
+                  </div>
+              </div>
+            </div>
+            <!-- Controls -->
+            <div class="carousel-button-container">
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div> 
+          </div>
+        </div>                
+        <div class="col-md-4 p-4 p-md-5 mb-4">
+            <h3>More from this issue:</h3>
+            <hr/>
+            <ul class="list-unstyled h-100">
+                <li>
+                  <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-2 link-body-emphasis text-decoration-none border-top" href="#">
+                    <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+                        <div class="col-lg-8">
+                          <h6 class="mb-0">Example blog post title</h6>
+                          <small class="text-body-secondary">January 15, 2023</small>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-2 link-body-emphasis text-decoration-none border-top" href="#">
+                        <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+                        <div class="col-lg-8">
+                          <h6 class="mb-0">This is another blog post title</h6>
+                          <small class="text-body-secondary">January 14, 2023</small>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                        <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-2 link-body-emphasis text-decoration-none border-top" href="#">
+                          <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+                          <div class="col-lg-8">
+                            <h6 class="mb-0">This is another blog post title</h6>
+                            <small class="text-body-secondary">January 14, 2023</small>
+                          </div>
+                        </a>
+                      </li>
+                </ul>
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-6">
+                  <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                      <strong class="d-inline-block mb-2 text-primary-emphasis">Category</strong>
+                      <h3 class="mb-0">More Posts</h3>
+                      <div class="mb-1 text-body-secondary">Nov 12</div>
+                      <p class="card-text mb-auto">Article Summary or First Sentence</p>
+                      <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+                        Continue reading
+                        <svg class="bi"><use xlink:href="#chevron-right"/></svg>
+                      </a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                      <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                      <strong class="d-inline-block mb-2 text-success-emphasis">Category</strong>
+                      <h3 class="mb-0">More Posts</h3>
+                      <div class="mb-1 text-body-secondary">Nov 11</div>
+                      <p class="mb-auto">Article Summary of First Sentence of Article. More rows added as necessary</p>
+                      <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+                        Continue reading
+                        <svg class="bi"><use xlink:href="#chevron-right"/></svg>
+                      </a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                      <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <div class="d-flex justify-content-between align-items-end mt-5">
+                <h1>More Stories</h1>
+                <p>Various Issues</p> 
+            </div>
+            <hr/>
+            <div class="row">
+              <div class="col-md-4 p-4 mb-4">
+                <h3>Throwback Reads</h3>
+                <hr/>
+                  <ul class="list-unstyled h-100">
+                    <li>
+                      <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-2 link-body-emphasis text-decoration-none border-top" href="#">
+                        <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+                        <div class="col-lg-8">
+                          <h6 class="mb-0">Example blog post title</h6>
+                          <small class="text-body-secondary">January 15, 2023</small>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-2 link-body-emphasis text-decoration-none border-top" href="#">                      <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+                      <div class="col-lg-8">
+                        <h6 class="mb-0">This is another blog post title</h6>
+                        <small class="text-body-secondary">January 14, 2023</small>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-2 link-body-emphasis text-decoration-none border-top" href="#">
+                      <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+                      <div class="col-lg-8">
+                        <h6 class="mb-0">This is another blog post title</h6>
+                        <small class="text-body-secondary">January 14, 2023</small>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-2 link-body-emphasis text-decoration-none border-top" href="#">
+                      <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+                      <div class="col-lg-8">
+                        <h6 class="mb-0">This is another blog post title</h6>
+                        <small class="text-body-secondary">January 14, 2023</small>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-8">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm bg-body-secondary h-md-250 position-relative">
+                      <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-success-emphasis">Category</strong>
+                        <h3 class="mb-0">More Posts</h3>
+                        <div class="mb-1 text-body-secondary">Nov 11</div>
+                        <p class="mb-auto">Article Summary of First Sentence of Article. More rows added as necessary</p>
+                        <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+                          Continue reading
+                          <svg class="bi"><use xlink:href="#chevron-right"/></svg>
+                        </a>
+                      </div>
+                      <div class="col-auto d-flex align-items-center justify-content-center me-2">
+                        <img src="../assets/images/readme_logo.png"
+                        width="auto" height="180" class="center" alt=""/>                      
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm bg-body-secondary h-md-250 position-relative">
+                      <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-success-emphasis">Category</strong>
+                        <h3 class="mb-0">More Posts</h3>
+                        <div class="mb-1 text-body-secondary">Nov 11</div>
+                        <p class="mb-auto">Article Summary of First Sentence of Article. More rows added as necessary</p>
+                        <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+                          Continue reading
+                          <svg class="bi"><use xlink:href="#chevron-right"/></svg>
+                        </a>
+                      </div>
+                      <div class="col-auto d-flex align-items-center justify-content-center me-2">
+                        <img src="../assets/images/readme_logo.png"
+                        width="auto" height="180" class="center" alt=""/>                      
+                      </div>
+                    </div>
+                  </div>
+                </div>  
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm bg-body-secondary h-md-250 position-relative">
+                      <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-success-emphasis">Category</strong>
+                        <h3 class="mb-0">More Posts</h3>
+                        <div class="mb-1 text-body-secondary">Nov 11</div>
+                        <p class="mb-auto">Article Summary of First Sentence of Article. More rows added as necessary</p>
+                        <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+                          Continue reading
+                          <svg class="bi"><use xlink:href="#chevron-right"/></svg>
+                        </a>
+                      </div>
+                      <div class="col-auto d-flex align-items-center justify-content-center me-2">
+                        <img src="../assets/images/readme_logo.png"
+                        width="auto" height="180" class="center" alt=""/>                      
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm bg-body-secondary h-md-250 position-relative">
+                      <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-success-emphasis">Category</strong>
+                        <h3 class="mb-0">More Posts</h3>
+                        <div class="mb-1 text-body-secondary">Nov 11</div>
+                        <p class="mb-auto">Article Summary of First Sentence of Article. More rows added as necessary</p>
+                        <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+                          Continue reading
+                          <svg class="bi"><use xlink:href="#chevron-right"/></svg>
+                        </a>
+                      </div>
+                      <div class="col-auto d-flex align-items-center justify-content-center me-2">
+                        <img src="../assets/images/readme_logo.png"
+                        width="auto" height="180" class="center" alt=""/>                      
+                      </div>
+                    </div>
+                  </div> 
+                </div>  
+              </div>
+            </div>
+        </div>
+    </body>
+    <div class="container-fluid">
+      <footer class="py-5 text-body-secondary bg-dark container">
+        <div class="row text-center d-flex justify-content-center align-items-center">
+            <div class="position-relative col-md-3">
+                <img src="../assets/images/readme_logo.png" alt="Image Description" class="img-fluid" />
+            
+            </div>
+            <div class="position-relative col-md-3">
+                <h2 class="text-white" style="text-align: left; font-family: Cutive Mono;">README, by CMU KGB</h2>
+            </div>
+        </div>      
+  </footer>
+  </div>
+</html>
