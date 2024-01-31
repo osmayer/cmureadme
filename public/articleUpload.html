@@ -194,7 +194,7 @@
 
             const formData = new FormData(this);
             console.log(formData.entries);
-            fetch('http://cmureadme.com/new_article', {
+            fetch('/new_article', {
                 method: 'POST',
                 body: formData
             })
