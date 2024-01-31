@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googltext-dark eapis.com/css2?family=Alegreya+Sans:wght@700;800&family=Cutive+Mono&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <style>
         /* Custom CSS for the image and overlay text */
@@ -123,8 +124,8 @@
             <div>
                 <div class="row flex-column g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                     <div class="col p-4 d-flex flex-column position-static">
-                        <h1 class="mb-0" style="font-family: Cutive Mono;">Submit an Article</h1>
-                        <p class="mb-auto">Add some basic info, your Google Docs export ZIP (don't unzip it, please), and get your article immediately!</p>
+                        <h1 class="mb-0" style="font-family: Cutive Mono;">Select the Index Page Layout</h1>
+                        <p class="mb-auto">Make Sure Articles are Where You'd Like Them!</p>
 
                     </div><!-- header right end-->
                     <div class="col-auto d-flex align-items-center position-static text-center order-first order-md-last" >
@@ -133,52 +134,65 @@
                     </div>
                 </div>
             </div>
-            <h2 class="text-center">There is litle success where there is little laughter -Andrew Carnegie</h2>
+            <h2 class="text-center">Teamwork is the ability to work together toward a common vision. It is the fuel that allows common people to attain uncommon results. -Andrew Carnegie</h2>
             <div>
                 <div class="row flex-column g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative col p-4 d-flex flex-column position-static">
-                    <form id="article_submission" action="/new_article" method="POST" enctype="multipart/form-data">
-                        <!-- Text Inputs -->
+                    <form id="index_contents" action="/index_contents" method="POST">
                         <div class="mb-3">
-                            <label for="articleTitle" class="form-label">Article Title</label>
-                            <input type="text" class="form-control square-input" name="articleTitle" id="articleTitle" placeholder="{Enter a title}" required>
-                        </div>
-                
-                        <div class="mb-3">
-                            <label for="articleHeader" class="form-label">Article Summary</label>
-                            <input type="text" class="form-control square-input" name="articleSummary" id="articleSummary" placeholder="{Write a brief summary}" required>
-                        </div>
-                
-                        <!-- Dropdown -->
-                        <div class="mb-3">
-                            <label for="dropdown" class="form-label">Category</label>
-                            <select class="form-select square-input" name="articleCategory" id="articleCategory" required>
-                                <option selected>Choose an option</option>
-                                <option value="Breaking News">Breaking News</option>
-                                <option value="Science & Tech">Science & Tech</option>
-                                <option value="Random Musings">Random Musings</option>
-                                <option value="Crime">Crime</option>
-                                <option value="Investigations">Investigations</option>
+                            <label for="dropdown" class="form-label">Slide 1</label>
+                            <select class="form-select square-input" name="slide1" id="slide1" required>
+                                <option selected>{None}</option>
                             </select>
                         </div>
-
-                        <!-- File Inputs -->
                         <div class="mb-3">
-                            <label for="article" class="form-label">ZIP File (Export from Docs)</label>
-                            <input type="file" class="form-control square-input" accept=".zip" name="article" id="article" required>
+                            <label for="dropdown" class="form-label">Slide 2</label>
+                            <select class="form-select square-input" name="slide2" id="slide2" required>
+                                <option selected>{None}</option>
+                            </select>
                         </div>
-                
                         <div class="mb-3">
-                            <label for="header" class="form-label">Headline Image</label>
-                            <input type="file" class="form-control square-input" name="header" id="header" required>
+                            <label for="dropdown" class="form-label">Slide 3</label>
+                            <select class="form-select square-input" name="slide3" id="slide3" required>
+                                <option selected>{None}</option>
+                            </select>
                         </div>
-                
+                        <div class="mb-3">
+                            <label for="dropdown" class="form-label">Side Bar 1</label>
+                            <select class="form-select square-input" name="sideBar1" id="sideBar1" required>
+                                <option selected>{None}</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="dropdown" class="form-label">Side Bar 2</label>
+                            <select class="form-select square-input" name="sideBar2" id="sideBar2" required>
+                                <option selected>{None}</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="dropdown" class="form-label">Side Bar 3</label>
+                            <select class="form-select square-input" name="sideBar3" id="sideBar3" required>
+                                <option selected>{None}</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="dropdown" class="form-label">Bottom Bar 1</label>
+                            <select class="form-select square-input" name="bottomBar1" id="bottomBar1" required>
+                                <option selected>{None}</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="dropdown" class="form-label">Bottom Bar 2</label>
+                            <select class="form-select square-input" name="bottomBar2" id="bottomBar2" required>
+                                <option selected>{None}</option>
+                            </select>
+                        </div>
+                        <!-- Submit Button -->
                         <div class="mb-3">
                             <label for="magicCode" class="form-label">Magic Code</label>
                             <input type="text" class="form-control square-input" name="magicCode" id="magicCode" placeholder="//Todo: implement password protection" required>
                         </div>
                         <!-- Submit Button -->
                         <button type="submit" class="btn btn-primary" >Let's go!</button>
-                        <!--input type="submit" value="Upload Images"-->
 
                     </form>
                 </div>
@@ -188,19 +202,56 @@
         </div>
     </body>
     <script>
-        const form = document.getElementById('article_submission');
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
+        $(document).ready(function(){
+        $("#index_contents").on('submit', function(e){
+            e.preventDefault(); // Prevent the default form submission
 
-            const formData = new FormData(this);
-            console.log(formData.entries);
-            fetch('http://localhost:3000/new_article', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => console.log(data))
-            .catch(error => console.error('Error:', error));
+            var formData = $(this).serialize(); // Serialize the form data
+
+            $.ajax({
+                type: "POST",
+                url: "/index_contents",
+                data: formData,
+                success: function(response){
+                    // Handle success - you can update the UI to reflect success
+                    console.log("Form submitted successfully");
+                    // Example: alert(response.message);
+                },
+                error: function(xhr, status, error){
+                    // Handle errors
+                    console.error("Error in form submission", error);
+                }
+            });
         });
+    });
+    </script>
+    <script>
+        const locations = [ "slide1", "slide2", "slide3", "sideBar1", "sideBar2", "sideBar3", "bottomBar1", "bottomBar2" ];
+        fetch('http://localhost:3000/article_list')
+            .then(response => {
+                if (!response.ok) {
+                throw new Error('Network response was not OK');
+                }
+                return response.json();
+            })
+            .then(articles => {
+               console.log(articles);
+               for(let j = 0; j < locations.length; j++) {
+                    for(let i = 0; i < articles.articles.length; i++) {
+                        addOptionToSelect(articles.articles[i].articleHash, articles.articles[i].articleTitle, locations[j]);
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('There has been a problem with your fetch operation:', error);
+            });
+
+            function addOptionToSelect(value, text, location) {
+                var select = document.getElementById(location);
+                var option = document.createElement('option');
+                option.value = value;
+                option.textContent = text;
+                select.appendChild(option);
+            }
     </script>
 </html>

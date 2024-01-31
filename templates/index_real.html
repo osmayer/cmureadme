@@ -148,34 +148,34 @@
       <div class="container-lg">
         <div class="d-flex justify-content-between align-items-end mt-5">
             <h1>Latest Issue</h1>
-            <p id="latestDate">Jan 31, 2024</p> 
+            <p id="latestDate">Jan 1, 1970</p> 
         </div>
         <hr>
         <div class="row">
           <div class="col-lg-8 p-4 p-md-5 mb-4  flex-column g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
             <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
               <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" id="slide1Button"></button>
-                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2" id="slide2Button"></button>
-                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3" id="slide3Button"></button>
+                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" id="slide1Button" style="{{slide1Buttontyle}}"></button>
+                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2" id="slide2Button" style="{{slide2Buttontyle}}"></button>
+                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3" id="slide3Button" style="{{slide3Buttontyle}}"></button>
               </div>
                   
               <div class="carousel-inner">
-              <div class="carousel-item active" id="slide1">
+              <div class="carousel-item active" id="slide1" style="{{slide1Style}}">
                 <a href="{{slide1Link}}" style="text-decoration:none" ><img src="{{slide1Image}}" class="d-block w-100" alt="...">
                   <div class="carousel-caption d-md-block">
                       <h5>{{slideHeadline1}}</h5>
                       <p>{{slideSummary1}}</p>
                   </div></a>
               </div>
-              <div class="carousel-item" id="slide2">
+              <div class="carousel-item" id="slide2" style="{{slide2Style}}">
                   <a href="{{slide2Link}}" style="text-decoration:none" ><img src="{{slide2Image}}" class="d-block w-100" alt="...">
                   <div class="carousel-caption d-md-block">
                       <h5>{{slideHeadline2}}</h5>
                       <p>{{slideSummary2}}</p>
                   </div></a>
               </div>
-              <div class="carousel-item" id="slide3">
+              <div class="carousel-item" id="slide3" style="{{slide3Style}}">
                 <a href="{{slide3Link}}" style="text-decoration:none" ><img src="{{slide3Image}}" class="d-block w-100" alt="...">
                   <div class="carousel-caption d-md-block">
                       <h5>{{slideHeadline3}}</h5>
@@ -200,7 +200,7 @@
             <h3>More from this issue:</h3>
             <hr/>
             <ul class="list-unstyled h-100">
-                <li id="sideBar1">
+                <li id="sideBar1" style="{{sideBar1Style}}">
                   <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-2 link-body-emphasis text-decoration-none border-top" href="{{sideBarLink1}}">
                     <img src="{{sideBarImg1}}" width="96" class="img-fluid" alt="Responsive image">                        <div class="col-lg-8">
                       <div class="col-lg-8">
@@ -209,7 +209,7 @@
                         </div>
                       </a>
                     </li>
-                    <li id="sideBar2">
+                    <li id="sideBar2" style="{{sideBar2Style}}">
                       <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-2 link-body-emphasis text-decoration-none border-top" href="{{sideBarLink2}}">
                         <img src="{{sideBarImg2}}" width="96" class="img-fluid" alt="Responsive image">                        <div class="col-lg-8">
                           <h6 class="mb-0">{{sideHeadline2}}</h6>
@@ -217,7 +217,7 @@
                         </div>
                       </a>
                     </li>
-                    <li id="sideBar3">
+                    <li id="sideBar3" style="{{sideBar3Style}}">
                         <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-2 link-body-emphasis text-decoration-none border-top" href="{{sideBarLink3}}">
                           <img src="{{sideBarImg3}}" width="96" class="img-fluid" alt="Responsive image">                        
                           <div class="col-lg-8">
@@ -230,7 +230,7 @@
                 </ul>
             </div>
             <div class="row mb-2">
-                <div class="col-md-6" id="bottom1">
+                <div class="col-md-6" id="bottom1" style="{{bottom1Style}}">
                   <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                     <div class="col p-4 d-flex flex-column position-static">
                       <strong class="d-inline-block mb-2 text-primary-emphasis">{{bottomCategory1}}</strong>
@@ -246,7 +246,7 @@
                       <img src="{{bottomImg1}}" width="200" height="200" class="img-fluid" alt="Responsive image">                               </div>
                   </div>
                 </div>
-                <div class="col-md-6" id="bottom2">
+                <div class="col-md-6" id="bottom2" style="{{bottom2Style}}">
                   <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                     <div class="col p-4 d-flex flex-column position-static">
                       <strong class="d-inline-block mb-2 text-success-emphasis">{{bottomCategory2}}</strong>

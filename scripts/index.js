@@ -10,8 +10,9 @@ const app = express();
 const cors = require('cors');
 app.use(cors());
 const bodyParser = require('body-parser');
-
-app.use(bodyParser.urlencoded({ extended: true }));
+const articleDb = require("./articleDB");
+const indexPage = require("./indexGenerator");
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'))
 
 
@@ -76,8 +77,8 @@ app.post("/new_article", upload.fields([{name: "article" }, { name: "header"}]),
   await unzipContents("./uploads/" + req.files.article[0].filename, articleHash);
   await moveHeaderImage(req.files.header[0].filename, articleHash+"_header."+req.files.header[0].mimetype.split("/")[1]);
   await generateArticlePage(articleHash, req.body.articleTitle, userName.userName, "../assets/" + articleHash+"_header."+req.files.header[0].mimetype.split("/")[1], new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }), req.body.articleCategory, req.body.articleSummary);
+  await articleDb.addArticleToDB(req.body.articleTitle, articleHash,  new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }), req.body.articleSummary, "cmureadme.com/generated_content/assets/" + articleHash+"_header."+req.files.header[0].mimetype.split("/")[1], req.body.articleCategory);
   await clearUploads(req.files.article[0].filename, articleHash);
-
 
   return res.json({
     "status": "sucess",
@@ -85,6 +86,26 @@ app.post("/new_article", upload.fields([{name: "article" }, { name: "header"}]),
   });
 })
 
+// Single file
+app.post("/index_contents", async (req, res) => {
+  try{
+    userName = await validateUser(req.body.magicCode);
+  } catch (e) {
+      return res.status(403).send({
+        message: "Authentication Error: " + e
+     });
+  }
+
+  await indexPage.generateIndexPage(req.body);
+  return res.json({
+    "status": "sucess",
+  });
+})
+
+app.get("/article_list", async (req, res) => {
+  const dataStore = await articleDb.getArticleList();
+  return res.json(JSON.parse(dataStore));
+})
 async function clearUploads(zipName, unzippedName) {
   fs.stat('./uploads/' + zipName, async function (err, stats) {
     console.log(stats);//here we got all information of file in stats variable
