@@ -15,7 +15,7 @@ const generateIndexPage = async (configList) => {
         indexPageTemplate = indexPageTemplate.replace("{{slide1ButtonStyle}}", "");
         indexPageTemplate = indexPageTemplate.replace("{{slide1Image}}", article1.articleThubmnailUrl);
         indexPageTemplate = indexPageTemplate.replace("{{slideHeadline1}}", article1.articleTitle);
-        indexPageTemplate = indexPageTemplate.replace("{{slide1Link}}", "/generated_content/articles/" + article1.articleHash);
+        indexPageTemplate = indexPageTemplate.replace("{{slide1Link}}", "/generated_content/articles/" + article1.articleHash + ".html");
         indexPageTemplate = indexPageTemplate.replace("{{slideSummary1}}", article1.articleSumary);
     }
 
@@ -28,7 +28,7 @@ const generateIndexPage = async (configList) => {
         indexPageTemplate = indexPageTemplate.replace("{{slide2ButtonStyle}}", "");
         indexPageTemplate = indexPageTemplate.replace("{{slide2Image}}", article1.articleThubmnailUrl);
         indexPageTemplate = indexPageTemplate.replace("{{slideHeadline2}}", article1.articleTitle);
-        indexPageTemplate = indexPageTemplate.replace("{{slide2Link}}", "/generated_content/articles/" + article1.articleHash);
+        indexPageTemplate = indexPageTemplate.replace("{{slide2Link}}", "/generated_content/articles/" + article1.articleHash + ".html");
         indexPageTemplate = indexPageTemplate.replace("{{slideSummary2}}", article1.articleSumary);   
     }
 
@@ -41,7 +41,7 @@ const generateIndexPage = async (configList) => {
         indexPageTemplate = indexPageTemplate.replace("{{slide3ButtonStyle}}", "");
         indexPageTemplate = indexPageTemplate.replace("{{slide3Image}}", article1.articleThubmnailUrl);
         indexPageTemplate = indexPageTemplate.replace("{{slideHeadline3}}", article1.articleTitle);
-        indexPageTemplate = indexPageTemplate.replace("{{slide3Link}}", "/generated_content/articles/" + article1.articleHash);
+        indexPageTemplate = indexPageTemplate.replace("{{slide3Link}}", "/generated_content/articles/" + article1.articleHash + ".html");
         indexPageTemplate = indexPageTemplate.replace("{{slideSummary3}}", article1.articleSumary);   
     }
 
@@ -52,7 +52,7 @@ const generateIndexPage = async (configList) => {
         indexPageTemplate = indexPageTemplate.replace("{{sideBar1Style}}", "");
         indexPageTemplate = indexPageTemplate.replace("{{sideBarImg1}}", article1.articleThubmnailUrl);
         indexPageTemplate = indexPageTemplate.replace("{{sideHeadline1}}", article1.articleTitle);
-        indexPageTemplate = indexPageTemplate.replace("{{sideBarLink1}}", "/generated_content/articles/" + article1.articleHash);
+        indexPageTemplate = indexPageTemplate.replace("{{sideBarLink1}}", "/generated_content/articles/" + article1.articleHash + ".html");
         indexPageTemplate = indexPageTemplate.replace("{{sideDate1}}", article1.articlePublishDate);   
     }
 
@@ -63,7 +63,7 @@ const generateIndexPage = async (configList) => {
         indexPageTemplate = indexPageTemplate.replace("{{sideBar2Style}}", "");
         indexPageTemplate = indexPageTemplate.replace("{{sideBarImg2}}", article1.articleThubmnailUrl);
         indexPageTemplate = indexPageTemplate.replace("{{sideHeadline2}}", article1.articleTitle);
-        indexPageTemplate = indexPageTemplate.replace("{{sideBarLink2}}", "/generated_content/articles/" + article1.articleHash);
+        indexPageTemplate = indexPageTemplate.replace("{{sideBarLink2}}", "/generated_content/articles/" + article1.articleHash + ".html");
         indexPageTemplate = indexPageTemplate.replace("{{sideDate2}}", article1.articlePublishDate);   
     }
 
@@ -74,7 +74,7 @@ const generateIndexPage = async (configList) => {
         indexPageTemplate = indexPageTemplate.replace("{{sideBar3Style}}", "");
         indexPageTemplate = indexPageTemplate.replace("{{sideBarImg3}}", article1.articleThubmnailUrl);
         indexPageTemplate = indexPageTemplate.replace("{{sideHeadline3}}", article1.articleTitle);
-        indexPageTemplate = indexPageTemplate.replace("{{sideBarLink3}}", "/generated_content/articles/" + article1.articleHash);
+        indexPageTemplate = indexPageTemplate.replace("{{sideBarLink3}}", "/generated_content/articles/" + article1.articleHash + ".html");
         indexPageTemplate = indexPageTemplate.replace("{{sideDate3}}", article1.articlePublishDate);   
     }
 
@@ -85,7 +85,7 @@ const generateIndexPage = async (configList) => {
         indexPageTemplate = indexPageTemplate.replace("{{bottom1Style}}", "");
         indexPageTemplate = indexPageTemplate.replace("{{bottomImg1}}", article1.articleThubmnailUrl);
         indexPageTemplate = indexPageTemplate.replace("{{bottomHeadline1}}", article1.articleTitle);
-        indexPageTemplate = indexPageTemplate.replace("{{bottom1Link}}", "/generated_content/articles/" + article1.articleHash);
+        indexPageTemplate = indexPageTemplate.replace("{{bottom1Link}}", "/generated_content/articles/" + article1.articleHash + ".html");
         indexPageTemplate = indexPageTemplate.replace("{{bottomDate1}}", article1.articlePublishDate);   
         indexPageTemplate = indexPageTemplate.replace("{{bottomCategory1}}", article1.articleCategory);   
 
@@ -98,7 +98,7 @@ const generateIndexPage = async (configList) => {
         indexPageTemplate = indexPageTemplate.replace("{{bottom2Style}}", "");
         indexPageTemplate = indexPageTemplate.replace("{{bottomImg2}}", article1.articleThubmnailUrl);
         indexPageTemplate = indexPageTemplate.replace("{{bottomHeadline2}}", article1.articleTitle);
-        indexPageTemplate = indexPageTemplate.replace("{{bottom2Link}}", "/generated_content/articles/" + article1.articleHash);
+        indexPageTemplate = indexPageTemplate.replace("{{bottom2Link}}", "/generated_content/articles/" + article1.articleHash + ".html");
         indexPageTemplate = indexPageTemplate.replace("{{bottomDate2}}", article1.articlePublishDate);   
         indexPageTemplate = indexPageTemplate.replace("{{bottomCategory2}}", article1.articleCategory);   
     }

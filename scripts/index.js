@@ -77,7 +77,7 @@ app.post("/new_article", upload.fields([{name: "article" }, { name: "header"}]),
   await unzipContents("./uploads/" + req.files.article[0].filename, articleHash);
   await moveHeaderImage(req.files.header[0].filename, articleHash+"_header."+req.files.header[0].mimetype.split("/")[1]);
   await generateArticlePage(articleHash, req.body.articleTitle, userName.userName, "../assets/" + articleHash+"_header."+req.files.header[0].mimetype.split("/")[1], new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }), req.body.articleCategory, req.body.articleSummary);
-  await articleDb.addArticleToDB(req.body.articleTitle, articleHash,  new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }), req.body.articleSummary, "cmureadme.com/generated_content/assets/" + articleHash+"_header."+req.files.header[0].mimetype.split("/")[1], req.body.articleCategory);
+  await articleDb.addArticleToDB(req.body.articleTitle, articleHash,  new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }), req.body.articleSummary, "/generated_content/assets/" + articleHash+"_header."+req.files.header[0].mimetype.split("/")[1], req.body.articleCategory);
   await clearUploads(req.files.article[0].filename, articleHash);
 
   return res.json({
