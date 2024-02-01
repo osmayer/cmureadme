@@ -88,6 +88,7 @@ const generateIndexPage = async (configList) => {
         indexPageTemplate = indexPageTemplate.replace("{{bottom1Link}}", "/generated_content/articles/" + article1.articleHash + ".html");
         indexPageTemplate = indexPageTemplate.replace("{{bottomDate1}}", article1.articlePublishDate);   
         indexPageTemplate = indexPageTemplate.replace("{{bottomCategory1}}", article1.articleCategory);   
+        indexPageTemplate = indexPageTemplate.replace("{{bottomSummary1}}", article1.articleSumary);   
 
     }
 
@@ -101,6 +102,7 @@ const generateIndexPage = async (configList) => {
         indexPageTemplate = indexPageTemplate.replace("{{bottom2Link}}", "/generated_content/articles/" + article1.articleHash + ".html");
         indexPageTemplate = indexPageTemplate.replace("{{bottomDate2}}", article1.articlePublishDate);   
         indexPageTemplate = indexPageTemplate.replace("{{bottomCategory2}}", article1.articleCategory);   
+        indexPageTemplate = indexPageTemplate.replace("{{bottomSummary2}}", article1.articleSumary);   
     }
 
     await fs.promises.writeFile("./public/index.html", indexPageTemplate);
