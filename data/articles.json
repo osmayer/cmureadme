@@ -1,12 +1,4 @@
 {
     "articles": [
-        {
-            "articleTitle": "Carnegie Crime Report",
-            "articleHash": "6ccae03748799ada9c8d506e51fe5979",
-            "articlePublishDate": "January 31, 2024",
-            "articleSumary": "Criminal Happenings Around the CMU Campus",
-            "articleThubmnailUrl": "/generated_content/assets/6ccae03748799ada9c8d506e51fe5979_header.png",
-            "articleCategory": "Crime"
-        }
     ]
 }
