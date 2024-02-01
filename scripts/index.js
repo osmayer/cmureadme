@@ -48,10 +48,6 @@ const fileFilter = function(req, file, cb) {
 
 const upload = multer({ storage: storage, fileFilter: fileFilter, limits: {fileSize: 1000000000} })
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-
 async function unzipContents(fileName, articleHash) {
   await decompress(fileName, "./uploads/" + articleHash)
   .then((files) => {
