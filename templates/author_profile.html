@@ -1,7 +1,3 @@
-<!-- an author profile page -->
-<!-- includes: -->
-<!--   -  -->
-
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <meta charset="utf-8">
@@ -61,23 +57,14 @@
     <!-- end header and navbar -->
 
     <div class="container-lg">
-      <div class="row mt-5">
+      <div class="row mt-5 mb-3">
+        <!-- spacer div -->
         <div class="col-sm-2"></div>
-        <div class="col-sm-8">
-          <h1>{{AuthorName}}</h1>
-        </div>
-        <div class="col-sm-2"></div>
-      </div>
-      <div class="row d-flex justify-content-between mt-1">
-        <div class="col-sm-2"></div>
-        
-        <!-- top stats, left side -->
-        <div class="col-sm-4">
-          <img src="https://images.unsplash.com/photo-1618826411640-d6df44dd3f7a" class="img-fluid" alt="temp {{alt text}}">
-        </div>
 
-        <!-- top stats, right side -->
-        <div class="col-sm-4 mt-3">
+        <!-- image and stats column -->
+        <div class="col-sm-2">
+          <img src="https://images.unsplash.com/photo-1618826411640-d6df44dd3f7a" class="img-fluid mb-3" alt="temp {{alt text}}">
+
           <p>
             Stat 1: {{Stat1}}
           </p>
@@ -98,43 +85,46 @@
           </p>
         </div>
         
-        <div class="col-sm-2"></div>
-        
-      </div>
-      
-      <div class="row mb-2">
-        <div class="col-sm-2"></div>
-        <div class="col-sm-8">
+        <!-- bio and previous works -->
+        <div class="col-sm-6">
+          <h1>{{AuthorName}}</h1>
+
           <hr>
 
-          <h2>Bio:</h2>
+          <h2>Bio</h2>
 
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tempus tristique dolor, sit amet laoreet purus pellentesque at. Proin commodo ipsum erat, quis varius lorem rutrum nec. Duis cursus vehicula dolor ac gravida. Nam in orci cursus, aliquam ante vitae, tincidunt risus. Sed efficitur justo vel arcu consectetur venenatis. Morbi volutpat nunc metus, in fermentum leo sollicitudin ut. Morbi et augue nulla. Donec sit amet condimentum neque. Fusce mauris nisl, bibendum et elementum sit amet, vulputate in tellus. Duis iaculis turpis quis dictum aliquam.
           </p>
 
-          <p>
-            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec a orci elit. Nunc efficitur erat a massa facilisis porta. Aenean vel gravida sapien, fringilla ornare enim. Nullam vitae est quis libero eleifend commodo. Integer tempus sodales dui, ac fermentum nunc bibendum ut. Nam ac neque malesuada, cursus est vitae, egestas nisi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis sed vestibulum enim, at accumsan nisi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas euismod ut nisl ac molestie. Vivamus lorem diam, posuere non condimentum a, dictum eget diam. Aliquam erat volutpat. Nulla facilisi. Vivamus gravida bibendum orci in blandit. Quisque imperdiet mi ac nisi pellentesque, quis rhoncus elit egestas.
-          </p>
+          <hr>
 
-          <p>
-            Donec ante augue, pellentesque vitae dui non, vestibulum rutrum ipsum. Sed pellentesque, nunc vitae ullamcorper semper, nunc diam dapibus tellus, eu viverra odio libero ut magna. In rhoncus nibh eu placerat imperdiet. Sed laoreet erat et magna laoreet, eu vestibulum est sagittis. Suspendisse quis semper ligula. In vitae ipsum semper, finibus leo in, vehicula magna. Ut in nisi vel enim interdum sagittis non quis erat. Aenean justo arcu, viverra ut malesuada at, cursus eget risus. Suspendisse ac lacinia mauris. Ut lacus erat, aliquam sed tortor sit amet, convallis ultrices nunc. Duis vitae massa in quam interdum laoreet et id diam.
-          </p>
+          <h2>Previous Articles</h2>
 
-          <p>
-            Vestibulum scelerisque, urna a fermentum dictum, tellus augue volutpat massa, sed tempus leo nibh at elit. Etiam vestibulum est lectus, sed interdum libero sodales et. Suspendisse laoreet ligula non tortor dignissim dictum. Quisque libero est, bibendum ut ultricies vel, bibendum vitae tortor. Fusce a luctus leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus posuere dolor enim, nec mattis urna porta vel. Suspendisse sed leo quis mi blandit venenatis eu sed purus. Maecenas euismod, ligula vitae pretium faucibus, dui libero efficitur tortor, a venenatis orci nisi id erat. Nam efficitur molestie sem, eu suscipit tellus commodo eu. Curabitur vestibulum ante sed tristique aliquam. Duis interdum feugiat arcu, sed euismod tellus tincidunt vitae. Vestibulum massa sapien, tincidunt ac orci ut, bibendum condimentum dui. Mauris sed ipsum mollis risus pellentesque feugiat.
-          </p>
+          <div class="author-profile-article"">
+            <img src="https://images.unsplash.com/photo-1596854407944-bf87f6fdd49e" style="max-width: 100px;" class="float-start imgshadow me-3" alt="">
+            <p>
+              <strong><a href="{{Article 1 Link}}">{{Article 1 Title}}</a></strong> &#8212; <em>{{article type}}</em> &#8212; <em>1970-1-1</em> &#8212;
+              ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+              in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
 
-          <p>
-            Donec vestibulum malesuada tellus, ut vulputate tellus sollicitudin eget. Phasellus viverra dolor a risus laoreet congue. Cras vestibulum turpis et metus iaculis mattis sit amet sed neque. Duis vehicula erat massa, eget bibendum lorem posuere suscipit. Sed quis porta justo. Aenean finibus blandit ultrices. Quisque sapien neque, lacinia vel sodales sit amet, luctus nec arcu. Vestibulum semper lorem sed mi pharetra, et bibendum lacus porta. Cras semper tortor nec suscipit imperdiet. Nunc purus risus, lacinia eu odio sit amet, euismod imperdiet lorem. Nam massa tellus, tincidunt quis odio at, varius accumsan lorem. Pellentesque rhoncus lacus vel turpis pulvinar blandit. Pellentesque tincidunt dui ante, quis congue nisi posuere id. Donec laoreet tempor erat in fringilla. Nunc elementum imperdiet sapien non aliquam. 
-          </p>
-
-
+          <div class="author-profile-article"">
+            <img src="https://images.unsplash.com/photo-1596854407944-bf87f6fdd49e" style="max-width: 100px;" class="float-start imgshadow me-3" alt="">
+            <p>
+              <strong><a href="{{Article 2 Link}}">{{Article 2 Title}}</a></strong> &#8212; <em>{{article type}}</em> &#8212; <em>1970-1-1</em> &#8212;
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+              in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
         </div>
+
+        <!-- spacer div -->
         <div class="col-sm-2"></div>
       </div>
     </div>
-    
+
     <!-- footer -->
     <div class="container-fluid">
       <footer class="py-5 text-body-secondary bg-dark container">
