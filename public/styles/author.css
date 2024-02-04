@@ -1,0 +1,44 @@
+@import './theme.css';
+
+* {
+    text-align: center;
+    font-family: "Playfair Display";
+}
+
+button {
+    font-size: 1.5em;
+    border-radius: 22px;
+    padding: 10px;
+    margin: 15px;
+    transition: 0.2s;
+    border: 2px solid;
+}
+  
+button:hover {
+    filter: brightness(1.1);
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+#displayIfNotLoggedIn {
+    display: none;
+}
+
+#loginForm {
+    min-width: 300px;
+    width: 40vw;
+    margin: 25px auto;
+    padding: 15px 30px;
+    border-radius: 22px;
+}
+
+#loginForm > input[type=text], #loginForm > input[type=password] {
+    padding: 5px 10px;
+    border-radius: 22px;
+    width: 30%;
+    max-width: 300px;
+}
+
+#displayIfLoggedIn {
+    display: none;
+}

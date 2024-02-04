@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="/styles/author.css">
+    <script src="/scripts/author.js" defer></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </head>
+    <body>
+        <h1>yippee you found the secret author portal</h1>
+        <div id="displayIfNotLoggedIn">
+            <form id="loginForm" class="contentTheme">
+                <h1>Log In</h1>
+                <label for="usernameLogin">Username</label>
+                <br>
+                <input id="usernameLogin" name="username" class="secondaryContentTheme" type="text" autocomplete="username" required onkeypress="return event.charCode != 32"></input>
+                <br>
+                <br>
+                <label for="passwordLogin">Password</label>
+                <br>
+                <input id="passwordLogin" name="password" class="secondaryContentTheme" type="password" autocomplete="current-password" required></input>
+                <br>
+                <br>
+                <label for="rememberMe">Remember Me</label>
+                <input id="rememberMe" name="rememberMe" type="checkbox">
+                <br><br>
+                <button type="submit" class="secondaryContentTheme">Login</button>
+                <br><br>
+            </form>
+        </div>
+        <div id="displayIfLoggedIn">
+            <h1>under construction :3</h1>
+            <button id="btnLogOut">Log Out</button>
+        </div>
+    </body>
+</html>
