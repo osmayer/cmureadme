@@ -4,10 +4,24 @@ const router = express.Router();
 const validator = require("validator");
 const multer = require('multer');
 const upload = multer();
-
-const sqlite3 = require("sqlite3").verbose();
 const jwt = require('jsonwebtoken');
 const bcrypt = require("bcrypt");
+
+const firebase = require("firebase");
+
+const firebaseConfig = {
+  apiKey: process.env["FIREBASE_API_KEY"],
+  authDomain: process.env["FIREBASE_AUTH_DOMAIN"],
+  projectId: process.env["FIREBASE_PROJECT_ID"],
+  storageBucket: process.env["FIREBASE_STORAGE_BUCKET"],
+  messagingSenderId: process.env["FIREBASE_MESSAGING_SENDER_ID"],
+  appId: process.env["FIREBASE_APP_ID"],
+  measurementId: process.env["FIREBASE_MEASUREMENT_ID"]
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
 
 router.post('/', upload.none(), async (req, res) => {
     if (!validator.isAlphanumeric(req.body.username)) {
@@ -17,59 +31,52 @@ router.post('/', upload.none(), async (req, res) => {
           }
         });
     } else {
-        let db = new sqlite3.Database(require("path").join(__dirname, "../../data/database.db"), (err) => {
-          if (err) {
-            console.log(err);
+      const Authors = db.collection("authors");
+
+      const snapshot = await Authors.where("username", "==", req.body.username).get();
+      
+      if (snapshot.empty) {
+        res.send({
+          error: {
+            title: "Username does not exist!",
+            message: "If you're an author and believe you should have an account, please contact a member of the README tech team."
           }
         });
-
-        db.get(`SELECT author_id, username, password_hashed FROM authors WHERE username = ?`, [req.body.username], function(err, row) {
-          db.close();
-          if (err) {
-            console.log(err);
-          } else {
-            if (row) {
-              bcrypt.compare(req.body.password, row.password_hashed, function(err, result) {
-                if (err) {
-                  console.log(err);
-                } else {
-                  if (result) {
-                    let author = {
-                      author_id: row.author_id
-                    }
-                    
-                    jwt.sign(author, process.env['JWT_PRIVATE_KEY'], function(err, token) {
-                      if (err) {
-                        console.log(err);
-                      } else {
-                        res.send({
-                          success: {
-                            title: "Logged in!",
-                            token: token
-                          }
-                        });
-                      }
-                    });
+      } else {
+        snapshot.forEach(doc => {
+          bcrypt.compare(req.body.password, doc.data().password_hashed, function(err, result) {
+            if (err) {
+              console.log(err);
+            } else {
+              if (result) {
+                let author = {
+                  author_id: doc.id
+                }
+                
+                jwt.sign(author, process.env['JWT_PRIVATE_KEY'], function(err, token) {
+                  if (err) {
+                    console.log(err);
                   } else {
                     res.send({
-                      error: {
-                        title: "Wrong password!",
-                        message: 'If you forgor your password and want to reset your password, please contact a member of the README tech team.'
+                      success: {
+                        title: "Logged in!",
+                        token: token
                       }
                     });
                   }
-                }
-              });
-            } else {
-              res.send({
-                error: {
-                  title: "Username does not exist!",
-                  message: "If you're an author and believe you should have an account, please contact a member of the README tech team."
-                }
-              });
+                });
+              } else {
+                res.send({
+                  error: {
+                    title: "Wrong password!",
+                    message: 'If you forgor your password and want to reset your password, please contact a member of the README tech team.'
+                  }
+                });
+              }
             }
-          }
+          });
         });
+      }
     }
 });
 

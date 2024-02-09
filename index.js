@@ -1,9 +1,9 @@
+require('dotenv').config();
 const express = require('express');
 const multer = require("multer");
 const path = require("path");
 const decompress = require("decompress");
 var crypto = require('crypto');
-const sqlite3 = require("sqlite3").verbose();
 const jwt = require('jsonwebtoken');
 const bcrypt = require("bcrypt");
 
@@ -19,43 +19,6 @@ const indexPage = require("./scripts/indexGenerator");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
-
-let db = new sqlite3.Database(__dirname + "/data/database.db", (err) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log("Connected to the database");
-  }
-});
-
-db.serialize(() => {
-  db.run(`CREATE TABLE IF NOT EXISTS authors(
-    author_id INTEGER PRIMARY KEY,
-    username TEXT NOT NULL UNIQUE,
-    password_hashed TEXT NOT NULL,
-    display_name TEXT NOT NULL
-  )`);
-
-  //logging database, uncomment following code to log database in console at runtime:
-
-  db.all(`SELECT author_id, username, password_hashed FROM authors`, [], (err, rows) => {
-    if (err) {
-      console.log(err);
-    } else {
-      rows.forEach(row => {
-        console.log(row);
-      });
-    }
-  });
-});
-
-db.close((err) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log("Successfully initialized database!");
-  }
-});
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -150,21 +113,6 @@ app.get("/author", async (req, res) => {
 
 app.use('/login', require(__dirname + "/scripts/account-handling/Login.js"));
 
-app.post('/supersecretroutefordevstoregisternewauthors', async (req, res) => {
-  if (req.body.secretTokenOnlyWeKnow !== process.env['JWT_PRIVATE_KEY']) {
-    res.send({
-      error: "bro's tryna hack"
-    });
-  } else {
-    if (newAuthor(req.body.newAuthorUsername, req.body.newAuthorPassword)) {
-      res.send({
-        success: "added them!"
-      });
-    }
-  }
-});
-
-
 
 async function clearUploads(zipName, unzippedName) {
   fs.stat('./uploads/' + zipName, async function (err, stats) {
@@ -206,27 +154,3 @@ async function moveHeaderImage(filename, filetarget) {
 app.listen(process.env.PORT || 3000, () => {
   console.log("Server on...")
 });
-
-function newAuthor(username, password) {
-  let db = new sqlite3.Database(__dirname + "/data/database.db", (err) => {
-    if (err) {
-      console.log(err);
-    }
-  });
-
-  bcrypt.hash(password, 10, function(err, hashedPassword) {
-    if (err) {
-      console.log(err);
-    } else {
-      db.run(`INSERT INTO authors(username, password_hashed, display_name) VALUES (?, ?, ?)`, [username, hashedPassword, username], function(err) {
-        if (err) {
-          console.log(err);
-        } else {
-          db.close();
-          console.log("Successfully created author!");
-          return true;
-        }
-      });
-    }
-  });
-}
