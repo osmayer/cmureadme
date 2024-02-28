@@ -107,6 +107,10 @@ app.get("/article_list", async (req, res) => {
   return res.json(JSON.parse(dataStore));
 });
 
+app.get("/podcasts/artificial-intelligence-for-real-this-time", async(req, res) => {
+  res.redirect("https://youtu.be/dQw4w9WgXcQ");
+});
+
 app.get("/author", async (req, res) => {
   res.sendFile(__dirname + "/public/author.html");
 });
