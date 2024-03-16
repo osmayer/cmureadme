@@ -73,9 +73,17 @@ async function openArticleTemplate() {
     }
 }
 
-async function writeArticle(articleHash, article) {
+
+function urlGen(target) {
+	return target
+									.replace(/\s+/g, '-')             // Replace spaces with hyphens
+    							.replace(/[^a-z0-9-_]/gi, '')     // Remove non-alphanumeric characters except hyphens and underscores
+    							.toLowerCase()                    // Convert to lowercase
+    							.substring(0, 30);                // Limit to 30 characters
+}
+async function writeArticle(articleTitle, article) {
     try {
-        await fs.promises.writeFile("./public/generated_content/articles/" + articleHash + ".html", article);
+        await fs.promises.writeFile("./public/generated_content/articles/" + urlGen(articleTitle) + ".html", article);
         console.log("File updated successfully");
     } catch (err) {
         console.error("Error writing file:", err);
