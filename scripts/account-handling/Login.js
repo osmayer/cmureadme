@@ -43,7 +43,10 @@ router.post('/', upload.none(), async (req, res) => {
           }
         });
       } else {
-        snapshot.forEach(doc => {
+        snapshot.forEach(async doc => {
+          console.log(req.body);
+          const hash2 = await bcrypt.hash(req.body.password, 10);
+          console.log(hash2)
           bcrypt.compare(req.body.password, doc.data().password_hashed, function(err, result) {
             if (err) {
               console.log(err);
